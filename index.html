@@ -8,7 +8,7 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex, nofollow">
 
-    <!-- Meta tag per l'immagine di anteprima -->
+    <!-- Configurazione dei metadati per le anteprime social -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Matrimonio Vincenzo & Angelica">
     <meta property="og:description" content="12 Agosto 2026 - Vi aspettiamo per festeggiare insieme!">
@@ -16,20 +16,17 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
-    <!-- PUNTO 2: Doppia dichiarazione Favicon per risolvere il problema dei Segnalibri/Preferiti -->
-    <!-- 1. Per la visualizzazione immediata nella scheda del browser attivo -->
+    <!-- Dichiarazione icone per i preferiti e la scheda del browser -->
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
 	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 
-    <!-- Google Fonts: Importazione di Alex Brush (Sposi) e Cormorant Garamond (Nuovo font elegante per il Countdown) -->
+    <!-- Caricamento dei font tipografici da Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&display=swap" rel="stylesheet">
 
     <style>
-        /* -------------------------------------------------------------------------- */
-        /* RESET E VARIABILI GLOBALI                                                  */
-        /* -------------------------------------------------------------------------- */
+        /* Reset degli stili nativi del browser e variabili globali */
         *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
@@ -121,9 +118,7 @@
             z-index: -1;
         }
 
-        /* -------------------------------------------------------------------------- */
-        /* NAVBAR                                                                     */
-        /* -------------------------------------------------------------------------- */
+        /* Barra di navigazione superiore */
         .navbar {
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -191,9 +186,7 @@
             transition: var(--transition);
         }
 
-        /* -------------------------------------------------------------------------- */
-        /* HERO SECTION                                                               */
-        /* -------------------------------------------------------------------------- */
+        /* Schermata principale di benvenuto (Hero) */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -257,9 +250,7 @@
             font-size: 1rem;
         }
 
-        /* -------------------------------------------------------------------------- */
-        /* PUNTO 1: NUOVO FONT ELEGANTE (Cormorant Garamond) PER I BOX TEMPORALI     */
-        /* -------------------------------------------------------------------------- */
+        /* Impostazione tipografica per i contenitori temporali */
         .timeline-container {
             width: 90%;
             max-width: 500px;
@@ -267,7 +258,7 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
-            font-family: 'Cormorant Garamond', serif; /* Applicato a tutta l'area */
+            font-family: 'Cormorant Garamond', serif;
         }
 
         .countdown-container, .wedding-day-container, .thank-you-container {
@@ -304,8 +295,8 @@
         }
 
         .countdown-number {
-            font-size: 2.4rem; /* Leggermente più grande per esaltare il font classico */
-            font-weight: 300;  /* Spessore light elegante per i numeri */
+            font-size: 2.4rem; 
+            font-weight: 300;  
             color: #222;
             line-height: 1.1;
         }
@@ -324,12 +315,10 @@
             font-weight: 600;
             color: #222;
             line-height: 1.4;
-            font-style: italic; /* Il corsivo di questo font è meraviglioso */
+            font-style: italic; 
         }
 
-        /* -------------------------------------------------------------------------- */
-        /* LOGISTICA E MAPPE                                                          */
-        /* -------------------------------------------------------------------------- */
+        /* Layout logistica e schede informative dei luoghi */
         .logistica-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -396,9 +385,7 @@
             box-shadow: 0 4px 15px rgba(255, 182, 193, 0.4);
         }
 
-        /* -------------------------------------------------------------------------- */
-        /* DRESS CODE                                                                 */
-        /* -------------------------------------------------------------------------- */
+        /* Sezione Dress Code */
         .dress-code-box {
             background: var(--card-bg);
             max-width: 700px;
@@ -416,9 +403,7 @@
             color: #333;
         }
 
-        /* -------------------------------------------------------------------------- */
-        /* FAQ (ACCORDION)                                                            */
-        /* -------------------------------------------------------------------------- */
+        /* Menu a fisarmonica delle Domande Frequenti (FAQ) */
         .faq-wrapper {
             max-width: 750px;
             margin: 0 auto;
@@ -472,9 +457,7 @@
             padding: 0 20px 20px 20px;
         }
 
-        /* -------------------------------------------------------------------------- */
-        /* RSVP MODULO                                                                */
-        /* -------------------------------------------------------------------------- */
+        /* Struttura del modulo di conferma presenza (RSVP) */
         .rsvp-box {
             background: var(--card-bg);
             max-width: 650px;
@@ -631,11 +614,12 @@
             line-height: 1.2;
         }
 
-        .privacy-group {
+        /* Nomi anonimi per aggirare i filtri ad-blocker sull'informativa */
+        .blocco-condizioni {
             margin: 20px 0;
         }
         
-        .privacy-label {
+        .spazio-consenso {
             display: flex;
             align-items: flex-start;
             gap: 10px;
@@ -646,7 +630,7 @@
             font-weight: normal !important;
         }
 
-        .privacy-label input[type="checkbox"] {
+        .spazio-consenso input[type="checkbox"] {
             margin-top: 3px;
             cursor: pointer;
         }
@@ -676,9 +660,7 @@
             transform: translateY(-1px);
         }
 
-        /* -------------------------------------------------------------------------- */
-        /* FOOTER                                                                     */
-        /* -------------------------------------------------------------------------- */
+        /* Piè di pagina */
         footer {
             background-color: rgba(255, 255, 255, 0.6);
             border-top: 1px solid rgba(255, 255, 255, 0.5);
@@ -696,16 +678,14 @@
             margin: 0 auto;
         }
 
-        .gdpr-notice {
+        .nota-testo {
             font-size: 0.75rem;
             line-height: 1.4;
             color: #777;
             padding: 0 15px;
         }
 
-        /* -------------------------------------------------------------------------- */
-        /* RESPONSIVE DESIGN (BREAKPOINTS)                                            */
-        /* -------------------------------------------------------------------------- */
+        /* Regole responsive per la corretta visualizzazione su smartphone e tablet */
         @media (max-width: 768px) {
             .nav-menu {
                 position: fixed;
@@ -797,7 +777,7 @@
     <section id="home" class="hero">
         <div class="hero-card">
             <div class="hero-img-container">
-                <img src="img/Vincenzo%20%26%20Angelica%2012-08-2026(1920px).webp" alt="Vincenzo & Angelica" class="hero-img">
+                <img src="img/Vincenzo%20&%20Angelica%2012-08-2026(1920px).webp" alt="Vincenzo & Angelica" class="hero-img">
             </div>
             <div class="hero-info">
                 <h1 class="hero-title">Vincenzo & Angelica</h1>
@@ -806,10 +786,10 @@
             </div>
         </div>
 
-        <!-- AREA CONTENITORI TEMPORALI (I 3 Box utilizzano ora il raffinato carattere Cormorant Garamond) -->
+        <!-- Area dei moduli informativi temporali con font classico raffinato -->
         <div class="timeline-container">
             
-            <!-- BOX 1: Countdown Standard -->
+            <!-- Box temporale: Conto alla rovescia standard -->
             <div class="countdown-container" id="box-countdown-timer">
                 <div class="countdown-title">Mancano solo</div>
                 <div class="countdown-timer">
@@ -832,12 +812,12 @@
                 </div>
             </div>
 
-            <!-- BOX 2: Messaggio Giorno del Matrimonio -->
+            <!-- Box temporale: Comunicazione per il giorno del matrimonio -->
             <div class="wedding-day-container" id="box-wedding-day">
                 <p class="status-message">Today is the wedding day, here we are!</p>
             </div>
 
-            <!-- BOX 3: Messaggio Post-Matrimonio ringraziamenti -->
+            <!-- Box temporale: Ringraziamenti successivi all'evento -->
             <div class="thank-you-container" id="box-thank-you">
                 <p class="status-message">Grazie per aver partecipato ed aver contribuito a rendere memorabile il nostro giorno, è stata un'emozione fantastica ❤️</p>
             </div>
@@ -930,6 +910,7 @@
 
             <form id="wedding-rsvp-form" autocomplete="off">
                 
+                <!-- Campo esca nascosto per intercettare bot spam (Honeypot) -->
                 <div class="form-group hidden-field">
                     <label for="user-email-address">Indirizzo Email</label>
                     <input type="email" id="user-email-address" name="user-email-address" tabindex="-1" value="">
@@ -973,6 +954,7 @@
                     </div>
                 </div>
 
+                <!-- Modulo selezione preferenze menù (configurato nascosto via script di default) -->
                 <div class="form-group hidden-field" id="menu-preference-group">
                     <label>Preferenza Menù</label>
                     <div class="menu-counters-box">
@@ -1005,11 +987,12 @@
                     <textarea id="notes" class="form-control" rows="3" placeholder="Lascia un pensiero o una nota per noi..." maxlength="500"></textarea>
                 </div>
 
-                <div class="privacy-group">
-                    <label class="privacy-label">
-                        <input type="checkbox" id="privacy-consent" required>
+                <!-- Casella di controllo camuffata per evitare l'intercettazione da parte di Ghostery -->
+                <div class="blocco-condizioni">
+                    <label class="spazio-consenso">
+                        <input type="checkbox" id="accetto-condizioni" required>
                         <div>
-                            <span>Accetto il trattamento dei dati personali in base all'informativa privacy qui in basso. *</span>
+                            <span>Accetto il trattamento dei dati personali in base alla nota informativa riportata in fondo alla pagina. *</span>
                         </div>
                     </label>
                 </div>
@@ -1023,8 +1006,9 @@
     <footer>
         <div class="container footer-content">
             <p>Vincenzo & Angelica &copy; 2026. Creato con amore.</p>
-            <p class="gdpr-notice">
-                <strong>Informativa Privacy e Cookie:</strong> Il sito prevede solo cookie tecnici strettamente necessari per il corretto funzionamento. I dati personali forniti volontariamente compilando il modulo saranno trattati dai futuri sposi esclusivamente per la gestione logistica, la disposizione dei tavoli e le comunicazioni relative al giorno del matrimonio. I dati verranno eliminati a celebrazione conclusa.
+            <!-- Testo informativo strutturato in modo anonimo senza riferimenti identificativi per i filtri ad-blocker -->
+            <p class="nota-testo">
+                <strong>Nota informativa:</strong> Il sito prevede solo cookie tecnici strettamente necessari per il corretto funzionamento. I dati personali forniti volontariamente compilando il modulo saranno trattati dai futuri sposi esclusivamente per la gestione logistica, la dispositione dei tavoli e le comunicazioni relative al giorno del matrimonio. I dati verranno eliminati a celebrazione conclusa.
             </p>
         </div>
     </footer>
@@ -1037,6 +1021,7 @@
         const inputMeat = document.getElementById('menu-meat');
         const boxContainerAdults = document.getElementById('box-container-adults');
 
+        // Attiva una rapida animazione visiva sul contatore degli adulti
         function triggerAdultsPulse() {
             boxContainerAdults.classList.add('highlight-pulse');
             setTimeout(() => {
@@ -1044,6 +1029,7 @@
             }, 50); 
         }
 
+        // Regola l'abilitazione e la disabilitazione dei pulsanti dei contatori in base ai limiti impostati
         function updateButtonStates() {
             const adults = parseInt(inputAdults.value);
             const kids = parseInt(inputKids.value);
@@ -1061,6 +1047,7 @@
             document.getElementById('btn-meat-plus').disabled = (adults >= 15);
         }
 
+        // Gestione incremento del contatore invitati adulti
         document.getElementById('btn-adults-plus').addEventListener('click', () => {
             let adults = parseInt(inputAdults.value);
             if (adults < 15) {
@@ -1070,6 +1057,7 @@
             }
         });
 
+        // Gestione decremento del contatore invitati adulti
         document.getElementById('btn-adults-minus').addEventListener('click', () => {
             let adults = parseInt(inputAdults.value);
             if (adults > 1) {
@@ -1085,6 +1073,7 @@
             }
         });
 
+        // Gestione incremento del contatore bambini
         document.getElementById('btn-kids-plus').addEventListener('click', () => {
             let kids = parseInt(inputKids.value);
             if (kids < 5) {
@@ -1093,6 +1082,7 @@
             }
         });
 
+        // Gestione decremento del contatore bambini
         document.getElementById('btn-kids-minus').addEventListener('click', () => {
             let kids = parseInt(inputKids.value);
             if (kids > 0) {
@@ -1101,6 +1091,7 @@
             }
         });
 
+        // Gestione incremento menù misto (pesce)
         document.getElementById('btn-fish-plus').addEventListener('click', () => {
             let adults = parseInt(inputAdults.value);
             let fish = parseInt(inputFish.value);
@@ -1112,6 +1103,7 @@
             }
         });
 
+        // Gestione decremento menù misto (pesce)
         document.getElementById('btn-fish-minus').addEventListener('click', () => {
             let adults = parseInt(inputAdults.value);
             let fish = parseInt(inputFish.value);
@@ -1123,6 +1115,7 @@
             }
         });
 
+        // Gestione incremento menù di terra (carne)
         document.getElementById('btn-meat-plus').addEventListener('click', () => {
             let adults = parseInt(inputAdults.value);
             let meat = parseInt(inputMeat.value);
@@ -1134,6 +1127,7 @@
             }
         });
 
+        // Gestione decremento menù di terra (carne)
         document.getElementById('btn-meat-minus').addEventListener('click', () => {
             let adults = parseInt(inputAdults.value);
             let meat = parseInt(inputMeat.value);
@@ -1148,11 +1142,13 @@
         const menuToggle = document.getElementById('mobile-menu');
         const navMenu = document.querySelector('.nav-menu');
 
+        // Controllo apertura e chiusura del pannello di navigazione su dispositivi mobili
         menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
 
+        // Forza la chiusura del menù mobile al click su una delle voci di navigazione
         document.querySelectorAll('.nav-item a').forEach(link => {
             link.addEventListener('click', () => {
                 menuToggle.classList.remove('active');
@@ -1161,6 +1157,8 @@
         });
 
         const faqQuestions = document.querySelectorAll('.faq-question');
+
+        // Gestione del meccanismo a fisarmonica delle sezioni FAQ
         faqQuestions.forEach(question => {
             question.addEventListener('click', () => {
                 const item = question.parentElement;
@@ -1185,6 +1183,7 @@
         const dietaryGroup = document.getElementById('dietary-group');
         const menuPreferenceGroup = document.getElementById('menu-preference-group');
 
+        // Modifica la visibilità dei campi del modulo a seconda delle opzioni di presenza selezionate
         attendanceRadios.forEach(radio => {
             radio.addEventListener('change', (e) => {
                 if (e.target.value === 'no') {
@@ -1199,9 +1198,9 @@
             });
         });
 
-        // LOGICA DEL COUNTDOWN
         const targetDate = new Date("August 12, 2026 00:00:00").getTime();
 
+        // Calcola e aggiorna i valori numerici del conto alla rovescia rispetto alla data prefissata
         function updateCountdown() {
             const now = new Date().getTime();
             const difference = targetDate - now;
@@ -1232,21 +1231,25 @@
             updateButtonStates();
         });
 
+        // Esegue la pulizia delle stringhe testuali in ingresso per prevenire vulnerabilità XSS
         function sanitizeString(str) {
             const temp = document.createElement('div');
             temp.textContent = str;
             return temp.innerHTML;
         }
 
+        // Elaborazione, validazione e sanificazione dei dati inviati tramite il modulo RSVP
         document.getElementById('wedding-rsvp-form').addEventListener('submit', function(e) {
             e.preventDefault();
 
+            // Controllo del campo Honeypot per bloccare l'invio automatizzato da parte di bot
             const honeypot = document.getElementById('user-email-address').value;
             if (honeypot !== "") {
                 return;
             }
 
-            const privacyChecked = document.getElementById('privacy-consent').checked;
+            // Verifica della spunta sulla casella delle condizioni con nome anonimizzato
+            const privacyChecked = document.getElementById('accetto-condizioni').checked;
             if (!privacyChecked) {
                 alert("Per favore, conferma il consenso per l'invio dei dati.");
                 return;
@@ -1274,6 +1277,7 @@
             console.log("Dati inviati:", rsvpData);
             alert("Grazie! La tua risposta è stata registrata correttamente.");
             
+            // Ripristino dello stato iniziale del modulo e dei contatori
             this.reset();
             inputAdults.value = 1;
             inputKids.value = 0;
