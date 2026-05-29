@@ -199,42 +199,6 @@
     font-style: italic; 
 }
 
-/* Classi icone modificate: Ingrandite e riposizionate senza spazi vuoti */
-.banner-img-decor {
-    max-width: 65px;
-    height: auto;
-    margin: 5px auto 15px auto;
-    display: inline-block;
-}
-
-.banner-img-group {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0px; 
-    margin-top: 20px;
-}
-
-.banner-img-inline {
-    max-width: 55px;
-    height: auto;
-    object-fit: contain;
-}
-
-.fedi-size {
-    max-width: 65px;
-    margin: 0 -8px; 
-}
-
-/* Regola aggiornata: Grandezza simile a ramo-fiori.jpg con allineamento armonioso */
-.sposi-icon-size {
-    max-width: 50px;
-    height: auto;
-    vertical-align: middle;
-    display: inline-block;
-    margin: 0 8px;
-}
-
 /* ==========================================================================
    LOGISTICA CARDS & GRID
    ========================================================================== */
@@ -273,13 +237,6 @@
     margin-bottom: 5px;
 }
 
-.location-time {
-    font-size: 0.95rem; 
-    color: var(--text-light); 
-    font-weight: bold; 
-    margin-bottom: 5px;
-}
-
 .location-name {
     font-size: 1.6rem;
     margin-bottom: 15px;
@@ -310,12 +267,6 @@
     font-size: 1.5rem;
     margin-bottom: 15px;
     color: #333;
-}
-
-.dress-code-note {
-    margin-top: 15px; 
-    font-size: 0.9rem; 
-    color: var(--text-light);
 }
 
 /* ==========================================================================
@@ -377,14 +328,6 @@
 /* ==========================================================================
    RSVP COMPLEX FORM COMPONENT
    ========================================================================== */
-.section-subtitle-rsvp {
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--text-light);
-    margin-bottom: 40px;
-}
-
 .rsvp-box {
     background: var(--card-bg);
     max-width: 650px;
@@ -393,14 +336,6 @@
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
     border: 1px solid rgba(255, 255, 255, 0.7);
-}
-
-.rsvp-intro {
-    text-align: center; 
-    font-size: 0.95rem; 
-    color: var(--text-light); 
-    margin-bottom: 30px; 
-    line-height: 1.5;
 }
 
 .form-group {
@@ -413,13 +348,6 @@
     margin-bottom: 8px;
     font-weight: 600;
     color: #333;
-}
-
-.field-help {
-    display: block; 
-    font-size: 0.85rem; 
-    color: var(--text-light); 
-    margin-bottom: 6px;
 }
 
 .form-control {
@@ -444,7 +372,6 @@ textarea.form-control {
     box-shadow: 0 0 0 3px rgba(255, 182, 193, 0.2);
 }
 
-/* Nuove classi stabili per la segnalazione errori personalizzata (Mobile e PC) */
 .custom-error-message {
     display: none;
     color: #ff414d;
@@ -680,25 +607,5 @@ textarea.form-control {
 
     .dress-code-box, .rsvp-box {
         padding: 25px 20px;
-    }
-    
-    /* Ridimensionamento icone per mobile in proporzione */
-    .banner-img-decor {
-        max-width: 50px;
-    }
-    
-    .banner-img-inline {
-        max-width: 42px;
-    }
-
-    .fedi-size {
-        max-width: 50px;
-        margin: 0 -6px;
-    }
-    
-    /* Ridimensionamento icona sposi su mobile */
-    .sposi-icon-size {
-        max-width: 38px;
-        margin: 0 4px;
     }
 }

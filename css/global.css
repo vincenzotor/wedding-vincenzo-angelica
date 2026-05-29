@@ -1,11 +1,14 @@
 /* ==========================================================================
-   VARIABLES & DESIGN SYSTEM
+   GLOBAL VARIABLES & DESIGN TOKENS
    ========================================================================== */
 :root {
-    --primary-color: #d4a373;
-    --text-color: #4a4a4a;
-    --text-light: #7a7a7a;
-    --bg-gradient: linear-gradient(135deg, #ffffff 0%, #fff0f5 50%, #ffe4e1 100%);
+    --primary-color: #d4a373; 
+    --text-color: #4a4a4a;   
+    --text-light: #7a7a7a;    
+    
+    /* SFONDO MOBILE (Default): Più bianco e delicato */
+    --bg-gradient: linear-gradient(135deg, #ffffff 0%, #ffffff 60%, #fff5f6 85%, #fbebee 100%);
+    
     --card-bg: rgba(255, 255, 255, 0.9);
     --accent-pink: #ffb6c1;
     --border-radius: 12px;
@@ -14,7 +17,7 @@
 }
 
 /* ==========================================================================
-   RESET & GLOBAL STYLES
+   BASE RESET
    ========================================================================== */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -24,19 +27,90 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px;
 }
 
+/* ==========================================================================
+   SFONDO BASE: Configurato di base per MOBILE (Frattale leggero e sfondo candido)
+   ========================================================================== */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: var(--text-color);
     line-height: 1.6;
+    
     background: var(--bg-gradient);
+    background-image: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M50 20 C55 35, 65 35, 50 50 C35 35, 45 35, 50 20 Z M50 50 C65 65, 55 65, 50 80 C45 65, 35 65, 50 50 Z M20 50 C35 45, 35 55, 50 50 C35 65, 35 55, 20 50 Z M50 50 C65 35, 55 35, 80 50 C65 55, 65 45, 50 50 Z' fill='%23e0dbdd' fill-opacity='0.04'/%3E%3C/svg%3E"), 
+        var(--bg-gradient);
+    
     background-attachment: fixed;
     overflow-x: hidden;
+    position: relative;
 }
 
 /* ==========================================================================
-   LAYOUT STRUCTURE
+   STRATO CORNICE FLOREALE: File "cornice_floreale_sfondo.png"
+   ========================================================================== */
+.cornice-sfondo-completa {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../img/cornice_floreale_sfondo.png');
+    background-repeat: no-repeat;
+    background-position: center top; 
+    background-size: cover; 
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    opacity: 1;
+    z-index: -2;
+}
+
+/* ==========================================================================
+   OTTIMIZZAZIONE E LOGICA DESKTOP (PC)
+   ========================================================================== */
+@media (min-width: 1025px) {
+    .cornice-sfondo-completa {
+        display: none !important; 
+    }
+
+    body {
+        background: linear-gradient(135deg, #ffffff 0%, #fff0f5 50%, #ffe4e1 100%);
+        background-image: 
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M50 20 C55 35, 65 35, 50 50 C35 35, 45 35, 50 20 Z M50 50 C65 65, 55 65, 50 80 C45 65, 35 65, 50 50 Z M20 50 C35 45, 35 55, 50 50 C35 65, 35 55, 20 50 Z M50 50 C65 35, 55 35, 80 50 C65 55, 65 45, 50 50 Z' fill='%23ffb6c1' fill-opacity='0.06'/%3E%3C/svg%3E"), 
+            linear-gradient(135deg, #ffffff 0%, #fff0f5 50%, #ffe4e1 100%);
+        background-attachment: fixed;
+    }
+}
+
+/* ==========================================================================
+   STRATO CUORE DI FIORI: File "cuore_di_fiori_sfondo.png"
+   ========================================================================== */
+.cuore-sfondo-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../img/cuore_di_fiori_sfondo.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain; 
+    pointer-events: none;      
+    mix-blend-mode: multiply; 
+    opacity: 0.30; 
+    z-index: -1;
+}
+
+@media (min-width: 1400px) {
+    .cuore-sfondo-container {
+        background-size: 45% auto;
+    }
+}
+
+/* ==========================================================================
+   LAYOUT STRUCTURE & ANIMATIONS
    ========================================================================== */
 .container {
     width: 100%;
@@ -60,6 +134,14 @@ section {
     }
 }
 
+/* ==========================================================================
+   TYPOGRAPHY ELEMENTS
+   ========================================================================== */
+h1, h2, h3, h4, .logo, .nav-item a {
+    font-family: 'Cinzel', serif; 
+    font-weight: 600;
+}
+
 .section-title {
     text-align: center;
     font-size: 2.2rem;
@@ -67,6 +149,14 @@ section {
     color: #333;
     position: relative;
     padding-top: 20px;
+}
+
+.section-subtitle-rsvp {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-light);
+    margin-bottom: 40px;
 }
 
 .section-title::after {
@@ -79,25 +169,20 @@ section {
     border-radius: 2px;
 }
 
-.floral-decor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M50 20 C55 35, 65 35, 50 50 C35 35, 45 35, 50 20 Z M50 50 C65 65, 55 65, 50 80 C45 65, 35 65, 50 50 Z M20 50 C35 45, 35 55, 50 50 C35 65, 35 55, 20 50 Z M50 50 C65 35, 55 35, 80 50 C65 55, 65 45, 50 50 Z' fill='%23ffb6c1' fill-opacity='0.06'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: -1;
+.font-banner-precedente {
+    font-family: 'Cormorant Garamond', serif !important;
 }
-
-.hidden-field {
-    display: none !important;
-    visibility: hidden !important;
+.font-banner-precedente .countdown-number {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-weight: 300;
 }
 
 /* ==========================================================================
-   BUTTON GLOBAL COMPONENT
+   UTILITIES & BUTTONS
    ========================================================================== */
+.text-center { text-align: center; }
+.hidden-field { display: none !important; visibility: hidden !important; }
+
 .btn {
     display: inline-block;
     background-color: #fff;
@@ -118,28 +203,30 @@ section {
 }
 
 /* ==========================================================================
-   FOOTER STYLES
+   FOOTER (Modificato per leggibilità)
    ========================================================================== */
 footer {
-    background-color: rgba(255, 255, 255, 0.6);
-    border-top: 1px solid rgba(255, 255, 255, 0.5);
-    padding: 35px 0;
-    font-size: 0.85rem;
+    padding: 50px 20px;
+    width: 100%;
+    background-image: none !important;
+    background-color: #fff0f5 !important;
+    margin-top: 40px;
+}
+
+.privacy-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    color: #444; /* Scurito leggermente per migliore leggibilità */
+    max-width: 750px;
+    margin: 0 auto 15px auto;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+.credits-text {
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
     color: var(--text-light);
-}
-
-.footer-content {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.nota-testo {
-    font-size: 0.75rem;
-    line-height: 1.4;
-    color: #777;
-    padding: 0 15px;
+    letter-spacing: 1px;
+    margin: 0;
 }

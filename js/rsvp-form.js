@@ -228,7 +228,7 @@ export function initRsvpForm() {
                                `- Intolleranze: ${dietaryForAlert}` +
                                `${notesLineSi}\n\n` +
                                `I dati sono stati salvati!\n` +
-                               `Grazie per haverceli comunicati ❤️`;
+                               `Grazie per averceli comunicati ❤️`;
             }
 
             // Mostra la finestra di avviso finale
