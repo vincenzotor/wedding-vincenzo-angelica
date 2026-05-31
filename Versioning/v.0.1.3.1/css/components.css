@@ -199,42 +199,6 @@
     font-style: italic; 
 }
 
-/* Classi icone modificate: Ingrandite e riposizionate senza spazi vuoti */
-.banner-img-decor {
-    max-width: 65px;
-    height: auto;
-    margin: 5px auto 15px auto;
-    display: inline-block;
-}
-
-.banner-img-group {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0px; 
-    margin-top: 20px;
-}
-
-.banner-img-inline {
-    max-width: 55px;
-    height: auto;
-    object-fit: contain;
-}
-
-.fedi-size {
-    max-width: 65px;
-    margin: 0 -8px; 
-}
-
-/* Regola aggiornata: Grandezza simile a ramo-fiori.jpg con allineamento armonioso */
-.sposi-icon-size {
-    max-width: 50px;
-    height: auto;
-    vertical-align: middle;
-    display: inline-block;
-    margin: 0 8px;
-}
-
 /* ==========================================================================
    LOGISTICA CARDS & GRID
    ========================================================================== */
