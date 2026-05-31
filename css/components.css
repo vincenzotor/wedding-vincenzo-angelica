@@ -2,7 +2,7 @@
    NAVIGATION BAR COMPONENT
    ========================================================================== */
 .navbar {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 1);
     backdrop-filter: blur(10px);
     position: fixed;
     top: 0;
@@ -81,7 +81,7 @@
 }
 
 .hero-card {
-    background: #ffffff;
+    background: var(--card-bg); /* Sostituito #ffffff con la variabile opaca */
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
     border: 1px solid rgba(255, 255, 255, 0.7);
@@ -108,7 +108,7 @@
 .hero-info {
     padding: 30px 25px;
     text-align: center;
-    background: #ffffff;
+    background: transparent; /* Sostituito #ffffff per far passare l'opacità della card */
 }
 
 .hero-title {
@@ -143,8 +143,7 @@
 }
 
 .countdown-container, .wedding-day-container, .thank-you-container {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(5px);
+    background: var(--card-bg); 
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
     border: 1px solid rgba(255, 255, 255, 0.7);
@@ -199,6 +198,7 @@
     font-style: italic; 
 }
 
+
 /* Classi icone modificate: Ingrandite e riposizionate senza spazi vuoti */
 .banner-img-decor {
     max-width: 65px;
@@ -245,7 +245,7 @@
 }
 
 .location-card {
-    background: linear-gradient(to bottom, #ffffff, #fff0f5);
+    background: var(--card-bg); /* Sostituito linear-gradient con la variabile opaca */
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--shadow);
@@ -429,16 +429,32 @@ textarea.form-control {
 
 .radio-group {
     display: flex;
-    gap: 20px;
-    margin-top: 5px;
+    flex-direction: column; /* Su mobile le spunte vanno una sotto l'altra, dando spazio al testo */
+    gap: 15px;
+    margin-top: 10px;
+}
+
+/* Solo su schermi grandi le mettiamo sulla stessa riga */
+@media (min-width: 600px) {
+    .radio-group {
+        flex-direction: row;
+        gap: 20px;
+    }
 }
 
 .radio-label {
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: auto 1fr; /* Crea due colonne rigide */
     gap: 8px;
+    align-items: start; /* Allinea il testo e il pallino in alto */
     cursor: pointer;
     font-weight: normal !important;
+}
+
+.radio-label input[type="radio"] {
+    margin-top: 6px;
+    width: 16px; /* Blocca la larghezza, il testo non potrà mai scivolarci sotto */
+    height: 16px;
 }
 
 .guests-flex {
@@ -545,9 +561,10 @@ textarea.form-control {
 }
 
 .spazio-consenso {
-    display: flex;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: auto 1fr; /* Griglia a due colonne per bloccare il testo */
     gap: 10px;
+    align-items: start;
     font-size: 0.88rem;
     color: var(--text-color);
     cursor: pointer;
@@ -556,7 +573,9 @@ textarea.form-control {
 }
 
 .spazio-consenso input[type="checkbox"] {
-    margin-top: 3px;
+    margin-top: 4px;
+    width: 16px; /* Blocca la larghezza */
+    height: 16px;
     cursor: pointer;
 }
 
