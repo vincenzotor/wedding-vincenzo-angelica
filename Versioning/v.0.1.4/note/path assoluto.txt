@@ -1,0 +1,2 @@
+per l'immagine di anteprima del link al sito viene utilizzata questa riga di codice con il path assoluto (obbligatorio); se in futuro cambierà il dominio, aggiorna il path assoluto:
+<meta property="og:image" content="https://vincenzotor.github.io/wedding-vincenzo-angelica/img/anteprima.jpeg">

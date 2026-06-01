@@ -9,14 +9,11 @@
     /* SFONDO MOBILE (Default): Più bianco e delicato */
     --bg-gradient: linear-gradient(135deg, #ffffff 0%, #ffffff 60%, #fff5f6 85%, #fbebee 100%);
     
-    --card-bg: rgba(255, 255, 255, 0.40);
+    --card-bg: rgba(255, 255, 255, 0.60);
     --accent-pink: #ffb6c1;
     --border-radius: 12px;
     --shadow: 0 8px 32px 0 rgba(255, 182, 193, 0.25);
     --transition: all 0.3s ease;
-
-    /* Dimensione dei box */
-    --box_max_width: 668px;
 }
 
 /* ==========================================================================
