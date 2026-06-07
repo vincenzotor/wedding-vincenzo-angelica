@@ -73,9 +73,9 @@
    ========================================================================== */
    .surprise-banner {
     display: none; /* All'inizio non si vede, poi si sblocca con Javascript in base alla data */
-    /* Sfondo fucsia acceso con opacità 0.7 per mantenere la coerenza stilistica */
+    /* Sfondo fucsia acceso con opacità 0.4 per mantenere la coerenza stilistica */
     /* background: rgba(255, 105, 180, 0.4) !important; */
-    /* Rosa pesca delicato (rgba) */
+    /* Rosa fucsia delicato (rgba) */
     background: rgba(249, 139, 201, 0.4) !important;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);

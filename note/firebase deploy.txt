@@ -1,0 +1,2 @@
+Per fare il deploy su firebase, apri il terminale (cmd) ed esegui il seguente comando:
+	firebase deploy

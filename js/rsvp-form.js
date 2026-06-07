@@ -1,5 +1,7 @@
 import { CONFIG } from './config.js';
 import { sanitizeString } from './utils.js';
+import db from './firebase-config.js'; 
+import { collection, addDoc, query, where, orderBy, limit, getDocs, doc, setDoc } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
 
 export function initRsvpForm() {
     const form = document.getElementById('wedding-rsvp-form');
@@ -143,7 +145,7 @@ export function initRsvpForm() {
     /**
      * VALIDAZIONE E INVIO FORM
      */
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         // Controllo Honeypot Antispam
@@ -191,7 +193,10 @@ export function initRsvpForm() {
             const rawName = guestNameInput.value.trim();
             const sanitizedName = sanitizeString(rawName).toUpperCase();
 
-            // Estrazione, sanificazione e troncamento protettivo dei testi
+            // Forza i valori a 0 se l'attendance è 'no'
+            const numAdulti = (attendance === 'no') ? "0" : adultsInput.value;
+            const numBambini = (attendance === 'no') ? "0" : kidsInput.value;
+
             const rawDietary = document.getElementById('dietary-restrictions').value.trim();
             const dietarySanitized = rawDietary !== "" ? sanitizeString(rawDietary) : "Nessuna";
             const dietaryForAlert = truncateTextForAlert(dietarySanitized, 80);
@@ -200,10 +205,43 @@ export function initRsvpForm() {
             const notesSanitized = rawNotes !== "" ? sanitizeString(rawNotes) : "";
             const notesForAlert = truncateTextForAlert(notesSanitized, 80);
 
+            // --- LOGICA SEQUENZA (ID LEGGIBILE) ---
+            const q = query(
+                collection(db, "rsvp"), 
+                where("nome", "==", sanitizedName), 
+                orderBy("dataInvio", "desc"), 
+                limit(1)
+            );
+            const querySnapshot = await getDocs(q);
+
+            let prossimoNumero = 1;
+            if (!querySnapshot.empty) {
+                const ultimoDoc = querySnapshot.docs[0].data();
+                if (ultimoDoc.sequenza) {
+                    prossimoNumero = ultimoDoc.sequenza + 1;
+                }
+            }
+
+            const idNominativo = `${sanitizedName}_${prossimoNumero}`;
+
+            // --- SALVATAGGIO SU FIREBASE ---
+            const docRef = doc(db, "rsvp", idNominativo);
+            await setDoc(docRef, {
+                nome: sanitizedName,
+                sequenza: prossimoNumero,
+                id_nominativo: idNominativo,
+                presenza: attendance,
+                adulti: numAdulti,
+                bambini: numBambini,
+                intolleranze: dietarySanitized,
+                note: notesSanitized,
+                dataInvio: new Date()
+            });
+
+            // --- MESSAGGI ALERT ORIGINALI ---
             let alertMessage = "";
 
             if (attendance === 'no') {
-                // Composizione riga messaggio per l'ASSENZA con riga vuota di stacco (\n\n) e dicitura aggiornata
                 let notesLineNo = "";
                 if (notesSanitized !== "") {
                     notesLineNo = `\n\n- Messaggio per gli sposi: ${notesForAlert}`;
@@ -211,30 +249,23 @@ export function initRsvpForm() {
                 
                 alertMessage = `Invio ricevuto, ci mancherai ${sanitizedName} ma ti ringraziamo per averci avvisato della tua assenza.${notesLineNo}`;
             } else {
-                // Composizione riga messaggio per la PRESENZA con dicitura aggiornata
                 let notesLineSi = "";
                 if (notesSanitized !== "") {
                     notesLineSi = `\n- Messaggio per gli sposi: ${notesForAlert}`;
                 }
 
-                const adults = adultsInput.value;
-                const kids = kidsInput.value;
-
-                // Messaggio per la presenza con riepilogo
                 alertMessage = `Grazie per la conferma ${sanitizedName} !\n\n` +
-                               `Riepilogo:\n` +
-                               `- Menù Adulti: ${adults}\n` +
-                               `- Menù Bambini: ${kids}\n` +
-                               `- Intolleranze: ${dietaryForAlert}` +
-                               `${notesLineSi}\n\n` +
-                               `I dati sono stati salvati!\n` +
-                               `Grazie per averceli comunicati ❤️`;
+                            `Riepilogo:\n` +
+                            `- Menù Adulti: ${adultsInput.value}\n` +
+                            `- Menù Bambini: ${kidsInput.value}\n` +
+                            `- Intolleranze: ${dietaryForAlert}` +
+                            `${notesLineSi}\n\n` +
+                            `I dati sono stati salvati!\n` +
+                            `Grazie per averceli comunicati ❤️`;
             }
 
-            // Mostra la finestra di avviso finale
             alert(alertMessage);
             
-            // Ripristino dello stato nativo del form
             form.reset();
             syncMenuPreferences();
             handleAttendanceChange();
@@ -242,9 +273,8 @@ export function initRsvpForm() {
         } catch (error) {
             console.error("Errore durante l'elaborazione del modulo RSVP:", error);
             
-            // Messaggio di errore aggiornato con punto esclamativo e andata a capo personalizzata
             const errorMessage = `Ops, purtroppo qualcosa non ha funzionato!\n` +
-                                 `Prova ad aggiornare la pagina e a ricompilare il modulo, oppure comunicaci i dati di conferma contattandoci privatamente`;
+                                `Prova ad aggiornare la pagina e a ricompilare il modulo, oppure comunicaci i dati di conferma contattandoci privatamente`;
             alert(errorMessage);
         }
     });
