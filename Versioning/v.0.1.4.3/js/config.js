@@ -1,6 +1,5 @@
 export const CONFIG = {
-    WEDDING_DATE: new Date('2026-08-12T00:00:00'),
-    THANK_YOU_DATE: new Date('2026-08-13T07:00:00'),
+    TARGET_DATE: "August 12, 2026 00:00:00",
     LIMITS: {
         MAX_ADULTS: 15,
         MIN_ADULTS: 1,

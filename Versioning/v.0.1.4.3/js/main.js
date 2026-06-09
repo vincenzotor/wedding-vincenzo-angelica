@@ -1,4 +1,3 @@
-import { initDateManager } from './date-manager.js';
 import { initCountdown } from './countdown.js';
 import { toggleSurpriseBanner } from './countdown.js';
 import { initUiInteractions } from './ui.js';
@@ -6,7 +5,6 @@ import { initRsvpForm } from './rsvp-form.js';
 
 window.addEventListener('DOMContentLoaded', () => {
     initUiInteractions();
-    initDateManager();
     initRsvpForm();
     // Avvia i moduli dell'applicazione in modo isolato
     initCountdown();

@@ -18,7 +18,7 @@ export function toggleSurpriseBanner() {
 }
 
 export function initCountdown() {
-    const targetTime = new Date(CONFIG.WEDDING_DATE).getTime();
+    const targetTime = new Date(CONFIG.TARGET_DATE).getTime();
     const now = new Date().getTime();
     const banner = document.getElementById('surprise-banner');
 
