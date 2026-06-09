@@ -49,6 +49,7 @@ body {
     background-attachment: fixed;
     overflow-x: hidden;
     position: relative;
+    font-display: swap;
 }
 
 /* ==========================================================================
@@ -143,6 +144,7 @@ section {
 h1, h2, h3, h4, .logo, .nav-item a {
     font-family: 'Cinzel', serif; 
     font-weight: 600;
+    font-display: swap;
 }
 
 .section-title {
@@ -174,10 +176,12 @@ h1, h2, h3, h4, .logo, .nav-item a {
 
 .font-banner-precedente {
     font-family: 'Cormorant Garamond', serif !important;
+    font-display: swap;
 }
 .font-banner-precedente .countdown-number {
     font-family: 'Cormorant Garamond', serif !important;
     font-weight: 300;
+    font-display: swap;
 }
 
 /* ==========================================================================
@@ -246,6 +250,7 @@ footer {
     margin: 0 auto 15px auto;
     line-height: 1.5;
     font-style: italic;
+    font-display: swap;
 }
 
 .credits-text {
@@ -254,6 +259,7 @@ footer {
     color: var(--text-light);
     letter-spacing: 1px;
     margin: 0;
+    font-display: swap;
 }
 
 .hidden-section {
