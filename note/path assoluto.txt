@@ -2,4 +2,4 @@ per l'immagine di anteprima del link al sito viene utilizzata questa riga di cod
 <meta property="og:image" content="https://vincenzotor.github.io/wedding-vincenzo-angelica/img/anteprima.jpeg">
 
 modificato il 11/06/2026 con:
-<meta property="og:image" content="https://weddingvincenzoangelica.web.app/wedding-vincenzo-angelica/img/anteprima.jpeg">
+<meta property="og:image" content="https://weddingvincenzoangelica.web.app/img/anteprima.jpeg">
