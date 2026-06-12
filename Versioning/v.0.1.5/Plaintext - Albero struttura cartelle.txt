@@ -1,0 +1,22 @@
+Plaintext - Albero di struttura delle cartelle del progetto
+
+wedding-vincenzo-angelica/
+│
+├── index.html                  # Unico punto di ingresso (Presentazione pura)
+│
+├── css/
+│   ├── global.css              # Reset, variabili, stili di base e layout
+│   └── components.css          # Stili isolati per Navbar, Card, Form, FAQ
+│
+├── js/
+│   ├── config.js               # Configurazione e costanti (Single Source of Truth)
+│   ├── utils.js                # Funzioni di utilità (es. Sanificazione XSS)
+│   ├── countdown.js            # Modulo isolato per il timer
+│   ├── ui.js                   # Gestione dell'interfaccia (FAQ, Menu Mobile)
+│   ├── rsvp-form.js            # Logica del modulo, contatori e validazione
+│   └── main.js                 # Orchestratore principale (Inizializza l'app)
+│
+└── img/                        # La tua cartella per le immagini
+    ├── anteprima.jpeg
+    ├── favicon.ico
+    └── [...altre immagini]
