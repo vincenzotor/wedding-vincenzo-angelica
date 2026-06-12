@@ -1,6 +1,5 @@
-import { initDateManager } from './date-manager.js';
+import { initDateManager, updateSurpriseBanner } from './date-manager.js';
 import { initCountdown } from './countdown.js';
-import { toggleSurpriseBanner } from './countdown.js';
 import { initUiInteractions } from './ui.js';
 import { initRsvpForm } from './rsvp-form.js';
 
@@ -10,9 +9,13 @@ document.fonts.ready.then(function () {
 
 window.addEventListener('DOMContentLoaded', () => {
     initUiInteractions();
+    
+    // 1. Prima accendiamo le logiche temporali (calendario e banner)
     initDateManager();
-    initRsvpForm();
-    toggleSurpriseBanner(); //gestisce il surprise-banner
-    // Avvia i moduli dell'applicazione in modo isolato
+    updateSurpriseBanner(); 
+    
+    // 2. Poi avviamo il timer puro
     initCountdown();
+    
+    initRsvpForm();
 });
