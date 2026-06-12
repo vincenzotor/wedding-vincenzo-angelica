@@ -11,9 +11,9 @@ export function initDateManager() {
     // Assicuriamoci di non lavorare su elementi nulli e li nascondiamo di base
     [timeline, wedding, thanks].forEach(el => el?.classList.add('hidden-section'));
 
-    if (now < CONFIG.WEDDING_DATE) {
+    if (now < CONFIG.WEDDING_DATE.getTime()) {
         if (timeline) timeline.classList.remove('hidden-section');
-    } else if (now >= CONFIG.WEDDING_DATE && now < CONFIG.THANK_YOU_DATE) {
+    } else if (now >= CONFIG.WEDDING_DATE.getTime() && now < CONFIG.THANK_YOU_DATE.getTime()) {
         if (wedding) wedding.classList.remove('hidden-section');
     } else {
         if (thanks) thanks.classList.remove('hidden-section');
@@ -31,7 +31,7 @@ export function updateSurpriseBanner() {
     if (!banner) return;
 
     //Nascondi il banner quando la sorpresa è terminata
-    if (now >= CONFIG.SURPRISE_OVER) {
+    if (now >= CONFIG.SURPRISE_OVER.getTime()) {
         banner.style.display = 'none';
         return; 
     }
@@ -39,8 +39,8 @@ export function updateSurpriseBanner() {
     // Nascondi tutti i testi del banner inizialmente
     [msgPre, msgEarly, btnContainer].forEach(el => el?.classList.add('hidden-field'));
 
-    const start = CONFIG.EARLY_SURPRISE_START;
-    const end = CONFIG.EARLY_SURPRISE_END;
+    const start = CONFIG.EARLY_SURPRISE_START.getTime();
+    const end = CONFIG.EARLY_SURPRISE_END.getTime();
 
     // Logica di visualizzazione basata sulle fasce orarie
     if (now < start) {
