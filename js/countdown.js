@@ -2,19 +2,36 @@ import { CONFIG } from './config.js';
 
 // Funzione che gestisce lo scambio dei banner
 export function toggleSurpriseBanner() {
-    const surpriseMsg = document.getElementById('surprise-message');
-    const surpriseBtn = document.getElementById('surprise-button-container');
+    const now = new Date().getTime();
     const banner = document.getElementById('surprise-banner');
+    const waitingSurpriseMsgPreWedd = document.getElementById('pre-wed-surprise-message');
+    const waitingSurpriseMsgEarlyWedd = document.getElementById('early-wed-surprise-message');
+    const surpriseBtn = document.getElementById('surprise-button-container');
     
-    // Se non trova il banner nel DOM, esce senza rompere il resto del sito
     if (!banner) return;
-    
-    if (surpriseMsg && surpriseBtn) {
-        surpriseMsg.classList.add('hidden-field');
-        surpriseBtn.classList.remove('hidden-field');
+
+    // Nascondi tutto inizialmente
+    [waitingSurpriseMsgPreWedd, waitingSurpriseMsgEarlyWedd, surpriseBtn].forEach(el => el?.classList.add('hidden-field'));
+
+    // Logica di visualizzazione
+    if (now < CONFIG.EARLY_SURPRISE_START) {
+        waitingSurpriseMsgPreWedd?.classList.remove('hidden-field');
+    } else if (now >= CONFIG.EARLY_SURPRISE_START && now < CONFIG.EARLY_SURPRISE_END) {
+        waitingSurpriseMsgEarlyWedd?.classList.remove('hidden-field');
+    } else {
+        surpriseBtn?.classList.remove('hidden-field');
     }
-    // Rendiamo visibile il box solo dopo aver applicato la logica
-    if (banner) banner.style.display = 'block';
+
+/*
+    if (now >= CONFIG.EARLY_SURPRISE_START && now < CONFIG.EARLY_SURPRISE_END) {
+        waitingSurpriseMsgEarlyWedd?.classList.remove('hidden-field');
+    } else if (now >= CONFIG.EARLY_SURPRISE_END) {
+        surpriseBtn?.classList.remove('hidden-field');
+    } else {
+        waitingSurpriseMsgPreWedd?.classList.remove('hidden-field');
+    }
+ */   
+    banner.style.display = 'block';
 }
 
 export function initCountdown() {

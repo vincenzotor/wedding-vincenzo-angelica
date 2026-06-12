@@ -12,7 +12,7 @@ window.addEventListener('DOMContentLoaded', () => {
     initUiInteractions();
     initDateManager();
     initRsvpForm();
+    toggleSurpriseBanner(); //gestisce il surprise-banner
     // Avvia i moduli dell'applicazione in modo isolato
     initCountdown();
-    //toggleSurpriseBanner(); //temporanea, per mostrare il bottone per caricare le foto prima del 12/08/2026
 });
