@@ -30,6 +30,12 @@ export function updateSurpriseBanner() {
     
     if (!banner) return;
 
+    //Nascondi il banner quando la sorpresa è terminata
+    if (now >= CONFIG.SURPRISE_OVER.getTime()) {
+        banner.style.display = 'none';
+        return; 
+    }
+
     // Nascondi tutti i testi del banner inizialmente
     [msgPre, msgEarly, btnContainer].forEach(el => el?.classList.add('hidden-field'));
 
